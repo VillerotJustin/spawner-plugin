@@ -1,23 +1,26 @@
 @tool
 extends EditorPlugin
 
-const PLUGIN_NAME = "Spawner"
-
-func _enable_plugin() -> void:
-	EditorInterface.set_plugin_enabled(PLUGIN_NAME + "/spawner_2d", true)
-	EditorInterface.set_plugin_enabled(PLUGIN_NAME + "/spawner_3d", true)
-
-
-func _disable_plugin() -> void:
-	EditorInterface.set_plugin_enabled(PLUGIN_NAME + "/spawner_2d", false)
-	EditorInterface.set_plugin_enabled(PLUGIN_NAME + "/spawner_3d", false)
-
+const Spawner2D = preload("res://addons/spawner/spawner_2d/spawner_2d.gd")
+const Spawner3D = preload("res://addons/spawner/spawner_3d/spawner_3d.gd")
 
 func _enter_tree() -> void:
-	# Initialization of the plugin goes here.
-	pass
-
+	# Add custom node types to the editor
+	add_custom_type(
+		"Spawner2D",
+		"Marker2D",
+		Spawner2D,
+		preload("res://addons/spawner/spawner_2d/spawner_2d_icon.svg")
+	)
+	
+	add_custom_type(
+		"Spawner3D",
+		"Marker3D",
+		Spawner3D,
+		preload("res://addons/spawner/spawner_3d/spawner_3d_icon.svg")
+	)
 
 func _exit_tree() -> void:
-	# Clean-up of the plugin goes here.
-	pass
+	# Remove custom node types from the editor
+	remove_custom_type("Spawner2D")
+	remove_custom_type("Spawner3D")
