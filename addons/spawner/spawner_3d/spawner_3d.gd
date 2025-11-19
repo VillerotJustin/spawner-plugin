@@ -126,8 +126,28 @@ func ordered_spawn(ASC: bool = true) -> void:
 		
 
 func wave_spawn() -> void:
-	push_warning("Unimplemented")
-	pass
+	# Get the spawn_points that will be used
+	var selected_spawn_points: Array[Marker3D] = get_selected_spawn_points()
+
+	for wave in waves:
+		# Get all wave entries from the current wave
+		var all_wave_entries: Array[WaveEntry] = []
+		for entry in wave.wave_entries:
+			for i in range(entry.number_of_instances):
+				all_wave_entries.append(entry)
+		
+		if all_wave_entries.is_empty():
+			push_error("No wave entries to spawn in wave: " + wave.wave_name)
+			continue
+		
+		var counter: int = 0
+		for spawnpoint in selected_spawn_points:
+			var entry = all_wave_entries[counter % all_wave_entries.size()]
+			await instantiate_scene_from_entry(entry, spawnpoint)
+			counter += 1
+		
+		# Wait for wave interval before spawning next wave
+		await get_tree().create_timer(wave_interval).timeout
 	
 # Selecting spawn points
 	

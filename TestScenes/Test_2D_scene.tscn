@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://c5ifsjwpi17hf" path="res://TestScenes/the_square.tscn" id="3_fieck"]
 [ext_resource type="Script" uid="uid://cuios3yw8uwwr" path="res://addons/spawner/wave_entry.gd" id="3_w02py"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_5xw38"]
+size = Vector2(1920, 1080)
+
+[sub_resource type="Gradient" id="Gradient_5xw38"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpnvd"]
+gradient = SubResource("Gradient_5xw38")
+
 [sub_resource type="Resource" id="Resource_ugio2"]
 script = ExtResource("3_w02py")
 packed_scene = ExtResource("2_dpnvd")
@@ -42,15 +50,16 @@ wave_entries = Array[ExtResource("3_w02py")]([SubResource("Resource_fieck"), Sub
 wave_name = "Second wave"
 metadata/_custom_type_script = "uid://b3yj53klb4y0r"
 
-[sub_resource type="QuadMesh" id="QuadMesh_5xw38"]
-size = Vector2(1920, 1080)
-
-[sub_resource type="Gradient" id="Gradient_5xw38"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpnvd"]
-gradient = SubResource("Gradient_5xw38")
-
 [node name="Node2D" type="Node2D"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+z_index = -7
+position = Vector2(-4.2915344e-06, -1.4305115e-06)
+scale = Vector2(0.59999996, 0.59999996)
+mesh = SubResource("QuadMesh_5xw38")
+texture = SubResource("GradientTexture2D_dpnvd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Spawner2D" type="Marker2D" parent="."]
 gizmo_extents = 5.0
@@ -79,12 +88,3 @@ position = Vector2(105, -241)
 
 [node name="Marker2D6" type="Marker2D" parent="Spawner2D"]
 position = Vector2(226, -246)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-z_index = -7
-position = Vector2(-4.2915344e-06, -1.4305115e-06)
-scale = Vector2(0.59999996, 0.59999996)
-mesh = SubResource("QuadMesh_5xw38")
-texture = SubResource("GradientTexture2D_dpnvd")
