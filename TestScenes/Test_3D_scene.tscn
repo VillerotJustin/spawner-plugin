@@ -49,9 +49,9 @@ size = Vector2(100, 100)
 
 [sub_resource type="Environment" id="Environment_vihki"]
 
-[node name="Node2D" type="Node3D"]
+[node name="Node3D" type="Node3D"]
 
-[node name="Spawner2D" type="Marker3D" parent="."]
+[node name="Spawner3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.062365845, 0)
 gizmo_extents = 1.0
 script = ExtResource("1_vihki")
@@ -62,25 +62,25 @@ spawn_type = "Wave"
 spawn_interval = 2.0
 metadata/_custom_type_script = "uid://dp2bp0vof3e2c"
 
-[node name="Marker2D" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.092583, 0.19550048, -27.142479)
 
-[node name="Marker2D2" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D2" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.898954, 0.098339766, -33.053375)
 
-[node name="Marker2D3" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D3" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.843025, 0.17634651, 5.971186)
 
-[node name="Marker2D4" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D4" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.11684, 0.15366879, 13.687984)
 
-[node name="Marker2D5" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D5" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.233824, -5.9604645e-08, 19.696777)
 
-[node name="Marker2D6" type="Marker3D" parent="Spawner2D"]
+[node name="Marker3D6" type="Marker3D" parent="Spawner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1276384, 33.252155, -0.51348126)
 
-[node name="Camera2D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.87175304, 0.48994553, 0, -0.48994553, 0.87175304, 0, 37.312195, 66.5885)
 current = true
 
